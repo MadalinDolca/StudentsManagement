@@ -1,0 +1,285 @@
+Admin (deprecated)
+Database name: UcV8tQamXQ
+Username: UcV8tQamXQ
+Password: h1fjGKNMLf
+Server: remotemysql.com
+Port: 3306
+
+Elevi (deprecated)
+Database name: rADGMmkqMI
+Username: rADGMmkqMI
+Password: WO4V8duIXE
+Server: remotemysql.com
+Port: 3306
+
+================================================================================================================================================
+================================================================================================================================================
+
+create table UcV8tQamXQ.Conturi (
+    id int(30) unsigned not null auto_increment,
+    username varchar(50) not null,
+    `password` varchar(50) not null,
+    usertype enum('admin', 'profesor') not null,
+    creat timestamp default current_timestamp,
+    actualizat timestamp,
+    primary key (id),
+    unique (username)
+);
+
+insert into UcV8tQamXQ.Conturi(username, password, usertype) VALUES ('madalin', '000', 'admin');
+insert into UcV8tQamXQ.Conturi(username, password, usertype) VALUES ('admin', 'admin', 'admin');
+insert into UcV8tQamXQ.Conturi(username, password, usertype) VALUES ('profesor', 'profesor', 'profesor');
+
+select * from UcV8tQamXQ.Conturi;
+drop table UcV8tQamXQ.Conturi;
+select username, password, usertype from UcV8tQamXQ.Conturi where username = 'madalin' and password = '000';
+
+########################################################################################################################
+
+create table UcV8tQamXQ.Setari (
+    id int(13) unsigned not null auto_increment,
+    numarVersiune varchar(50) not null,
+    numarVersiuneCurenta varchar(50) not null,
+    mesajRestrictionare varchar(200) not null,
+    temaLookAndFeel varchar(50) not null,
+    melodie varchar(50) not null,
+    credit varchar(100) not null,
+    primary key (id)
+);
+
+insert into UcV8tQamXQ.Setari(numarVersiune, numarVersiuneCurenta, mesajRestrictionare, temalookandfeel, melodie, credit)
+values ('v1.0', 'v1.1', 'Nu ai dreptul de a folosi această aplicație!', 'Windows', 'Ranbu no Melody', 'Gloriously developed by Ca Băieții INC.');
+
+select * from UcV8tQamXQ.Setari;
+
+# Numar Versiune
+update UcV8tQamXQ.Setari set numarVersiune = 'v1.0' where id = 1;
+
+# Numar Versiune Curenta
+update UcV8tQamXQ.Setari set numarVersiuneCurenta = 'v1.1' where id = 1;
+
+# Mesaj Restrictionare
+update UcV8tQamXQ.Setari set mesajRestrictionare = 'Nu ai dreptul de a folosi această aplicație!' where id = 1;
+
+# Tema - Metal, Nimbus, CDE/Motif, Windows, Windows Classic, Darcula
+update UcV8tQamXQ.Setari set temaLookAndFeel = 'Windows' where id = 1;
+
+# Melodie
+update UcV8tQamXQ.Setari set melodie = 'null' where id = 1;
+update UcV8tQamXQ.Setari set melodie = 'Story' where id = 1;
+update UcV8tQamXQ.Setari set melodie = 'The Hero' where id = 1;
+update UcV8tQamXQ.Setari set melodie = 'Ranbu no Melody' where id = 1;
+update UcV8tQamXQ.Setari set melodie = 'Bautura si Manele' where id = 1;
+update UcV8tQamXQ.Setari set melodie = 'Ce Bombeu' where id = 1;
+
+# Credit
+update UcV8tQamXQ.Setari set credit = 'Gloriously developed by Mădălin Dolca' where id = 1;
+update UcV8tQamXQ.Setari set credit = 'Gloriously developed by Ca Băieții INC.' where id = 1;
+
+########################################################################################################################
+
+create table UcV8tQamXQ.Autentificari (
+    id int(13) unsigned not null auto_increment,
+    numeCont varchar(10),
+    numePC varchar(200),
+    uuid varchar(200),
+    accesare timestamp default current_timestamp,
+    primary key (id)
+);
+
+########################################################################################################################
+
+create table UcV8tQamXQ.BannedSystems (
+    id int(13) unsigned not null auto_increment,
+    uuid varchar(200),
+    primary key (id)
+);
+
+select * from UcV8tQamXQ.BannedSystems;
+select uuid from UcV8tQamXQ.BannedSystems where uuid = 'y';
+insert into UcV8tQamXQ.BannedSystems (uuid) values ('385A42CB-D72C-E811-80C9-9828A60953D8');
+update UcV8tQamXQ.BannedSystems set uuid = 'x' where uuid = '385A42CB-D72C-E811-80C9-9828A60953D8';
+
+########################################################################################################################
+
+create table UcV8tQamXQ.BannedAccounts (
+    id int(13) unsigned not null auto_increment,
+    numeCont varchar(200),
+    primary key (id)
+);
+
+select * from UcV8tQamXQ.BannedAccounts;
+select numeCont from UcV8tQamXQ.BannedAccounts where numeCont = 'madalin';
+insert into UcV8tQamXQ.BannedAccounts (numeCont) values ('madalin');
+update UcV8tQamXQ.BannedAccounts set numeCont = 'x' where numeCont = 'madalin';
+
+================================================================================================================================================
+================================================================================================================================================
+
+create table Clase (
+  id int(13) unsigned not null auto_increment,
+  nume varchar(50) not null,
+
+  creat timestamp default current_timestamp,
+  actualizat timestamp,
+
+  primary key (id)
+);
+
+create table Studii (
+  id int(13) unsigned not null auto_increment,
+  anScolar varchar(50) not null,
+  unitateFormatiune varchar(100) not null,
+  nivel varchar(50) not null,
+  clasa varchar(15) not null,
+  limbaModerna1 varchar(50),
+  limbaModerna2 varchar(50),
+  situatieScolara varchar(50),
+  dataIntrariiInVigoare date,
+  dataIncheierii date,
+
+  creat timestamp default current_timestamp,
+  actualizat timestamp,
+
+  primary key (id)
+);
+
+create table Elevi (
+  id int(13) unsigned not null auto_increment,
+  idClasa int(13) unsigned default 100,
+  idStudii int(13) unsigned,
+  idBursa int(13) unsigned default 100,
+  cnp varchar(13) not null,
+  nume varchar(50) not null,
+  initialaTata varchar(10) not null,
+  prenume varchar(50) not null,
+  sex varchar(10) not null,
+  dataNasterii date not null,
+  adresa varchar(100) not null,
+  nrTelefon varchar(50) not null,
+
+  creat timestamp default current_timestamp,
+  actualizat timestamp,
+
+  primary key(id),
+  unique (cnp),
+  foreign key (idClasa) references Clase(id) on delete cascade on update cascade,
+  foreign key (idStudii) references Studii(id) on delete cascade on update cascade,
+  foreign key (idBursa) references Burse(id) on delete cascade on update cascade
+);
+
+create table Materii (
+  id int(13) unsigned not null auto_increment,
+  nume varchar(50) not null,
+
+  creat timestamp default current_timestamp,
+  actualizat timestamp,
+
+  primary key (id)
+);
+
+create table Note (
+  id int(13) unsigned not null auto_increment,
+  idElev int(13) unsigned,
+  idMaterie int(13) unsigned,
+  nota decimal(4,2),
+  data date not null,
+  tipNota varchar(50) not null,
+
+  creat timestamp default current_timestamp,
+  actualizat timestamp,
+
+  primary key (id),
+  foreign key (idElev) references Elevi(id) on delete cascade on update cascade,
+  foreign key (idMaterie) references Materii(id) on delete cascade on update cascade
+);
+
+create table Absente (
+  id int(13) unsigned not null auto_increment,
+  idElev int(13) unsigned,
+  idMaterie int(13) unsigned,
+  data date not null,
+  tipAbsenta varchar(50) default 'Nemotivată',
+
+  creat timestamp default current_timestamp,
+  actualizat timestamp,
+
+  primary key (id),
+  foreign key (idElev) references Elevi(id) on delete cascade on update cascade,
+  foreign key (idMaterie) references Materii(id) on delete cascade on update cascade
+);
+
+create table Burse (
+    id int(13) unsigned not null auto_increment,
+    tipBursa varchar(50) not null default 'Fără Bursă',
+
+    creat timestamp default current_timestamp,
+    actualizat timestamp,
+
+    primary key (id)
+);
+# Bursă de performanță, Bursă de merit, Bursă de studiu, Bursă de ajutor social, Bursă medicală
+
+insert into Elevi(cnp, nume, initialaTata, prenume, sex, dataNasterii, adresa, nrTelefon) VALUES
+('1990813000000', 'Dolca', 'D', 'Madalin - Marian', 'Masculin', '1999-08-13', 'Baia Mare, România', '0700000000'),
+('1990101000000', 'Doe', 'K.D.', 'John McClaren', 'Masculin', '1999-01-01', 'South Carolina, US', '0700312341'),
+('2980710000000', 'Westwood', 'S', 'Kimberly', 'Feminin', '1998-07-10', 'Ohio, US', '0700123456'),
+('2990104000000', 'Oleyn', 'B.H.', 'Jessica', 'Feminin', '1999-04-01', 'North Dakota, US', '0700874532'),
+('1971106000000', 'Parker', 'M', 'Jake', 'Masculin', '1997-11-06', 'Colorado, US', '0700729468');
+
+insert into Clase(nume) values ('a IX-a A'), ('a IX-a B'), ('a X-a A'), ('a X-a B'),
+                               ('a XI-a A'), ('a XI-a B'), ('a XII-a A'), ('a XII-a B');
+insert into Clase(id, nume) values (100, 'Fără Clasă');
+
+insert into Materii(nume) values ('Matematică'), ('Informatică'), ('Fizică'), ('Română'), ('Engleză'),
+                               ('Franceză'), ('Chimie'), ('Geografie'), ('Biologie'), ('Sport');
+
+insert into Note(idElev, idMaterie, nota, data, tipNota) values (1, 1, 10, '2020-12-01', 'Normală'),
+                                                                (1, 2, 9, '2020-12-01', 'Normală'),
+                                                                (1, 3, 8.66, '2020-12-01', 'Normală'),
+                                                                (1, 4, 3, '2020-12-01', 'Normală');
+
+insert into Note(idElev, idMaterie, nota, data, tipNota) values (2, 1, 6, '2020-12-01', 'Normală'),
+                                                                (2, 2, 2, '2020-12-01', 'Normală'),
+                                                                (2, 3, 1.65, '2020-12-01', 'Normală'),
+                                                                (2, 4, 5, '2020-12-01', 'Normală');
+
+insert into Absente(idElev, idMaterie, data, tipAbsenta) values(1, 1, '2020-12-12', 'Motivată');
+
+select Absente.id, Absente.data, Absente.tipAbsenta from Absente
+inner join Elevi on Absente.idElev = Elevi.id
+inner join Materii on Absente.idMaterie = Materii.id where Elevi.id = 1 and Materii.id = 1;
+
+select Note.nota from Note
+                        inner join Elevi on Note.idElev = Elevi.id
+                        inner join Materii on Note.idMaterie = Materii.id where
+                        Elevi.id = 1 and
+                        Materii.nume = 'Matematica' and
+                        Note.tipNota = 'Normală';
+
+insert into Burse (id, tipBursa) values (1, 'Bursă de performanță'),
+                                        (2, 'Bursă de merit'),
+                                        (3, 'Bursă de studiu'),
+                                        (4, 'Bursă de ajutor social'),
+                                        (5, 'Bursă medicală'),
+                                        (100, 'Fără Bursă');
+
+select Elevi.id, Elevi.nume, Elevi.initialaTata, Elevi.prenume, Clase.nume from Elevi
+inner join Clase on Elevi.idClasa = Clase.id
+inner join Burse on Elevi.idBursa = Burse.id
+where Burse.tipBursa = 'Bursă de performanță';
+
+select count(Elevi.id) from Elevi
+inner join Burse on Elevi.idBursa = Burse.id
+where Burse.tipBursa = 'Bursă de merit';
+
+select Elevi.id, Elevi.nume, Elevi.initialaTata, Elevi.prenume from Elevi
+inner join Burse on Elevi.idBursa = Burse.id
+where Elevi.idBursa = 100;
+
+select Note.tipNota from Note
+inner join Materii on Note.idMaterie = Materii.id
+inner join Elevi on Note.idElev = Elevi.id
+where Elevi.id = 1 and Materii.nume = 'Matematică' and Note.tipNota = 'Teză';
+
+select * from Elevi;
