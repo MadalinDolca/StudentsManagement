@@ -1,6 +1,6 @@
-# Students Management
+# 🏫 Students Management
 
-
+Students management app for an educational institution. Used to add new students, manage their data, manage the classes they belong to, manage their grades and the scholarships.
 
 🗓️ Developed during the December of 2020
 
