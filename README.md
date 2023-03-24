@@ -2,7 +2,7 @@
 
 <img src="art/main_role_admin.png" width="500px"/>
 
-Finished on December of 2020
+🗓️ Developed during December of 2020
 
 ## Preview
 
@@ -25,6 +25,18 @@ Finished on December of 2020
 | <img src="art/class_role_admin.png" width="500px"/> | <img src="art/class_role_teacher.png" width="500px"/> |
 | Add student to class | Change student class |
 | <img src="art/class_student_add.png" width="500px"/> | <img src="art/class_student_update.png" width="500px"/> |
+
+### Gradebook
+
+| Gradebook view | Select student  |
+| :-: | :-: |
+| <img src="art/gradebook.png" width="500px"/> | <img src="art/gradebook_select_student.png" width="500px"/> |
+| Select subject | Export notes
+| <img src="art/gradebook_select_subject.png" width="500px"/> | <img src="art/gradebook_export.png" width="500px"/> |
+| Add grade | Modify grade |
+| <img src="art/gradebook_grade_add.png" width="500px"/> | <img src="art/gradebook_grade_update.png" width="500px"/> |
+| Add absence | Modify absence |
+| <img src="art/gradebook_absence_add.png" width="500px"/> | <img src="art/gradebook_absence_update.png" width="500px"/> |
 
 ### Scholarships
 
