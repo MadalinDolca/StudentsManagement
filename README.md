@@ -41,6 +41,7 @@
 - Java Swing for the UI
 - MySQL database
 - MySQL Connector to connect to the database
+- JCalendar for graphically picking a date
 
 ## 👀 Preview
 
