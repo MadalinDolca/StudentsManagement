@@ -32,7 +32,9 @@
   - Mark the absence of a selected student to the selected subject
   - Modify a selected absence
 - **Schoolarships**
-  -
+  - View all the students that have the selected scholarship
+  - Assign students to scholarships
+  - Chnage the scholarship of a selected user
 
 ## 🔮 Technologies
 - Java for the app logic
