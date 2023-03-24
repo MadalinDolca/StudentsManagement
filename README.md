@@ -1,10 +1,46 @@
 # Students Management
 
+
+
+🗓️ Developed during the December of 2020
+
+⚙️ The managing companion tool of this app can be seen [here](https://github.com/MadalinDolca/ControlPanel).
+
 <img src="art/main_role_admin.png" width="500px"/>
 
-🗓️ Developed during December of 2020
+## 🌟 Features
+- User authentication
+- Role-based access
+- Database connection handler
+- Network connection handler
+- **Students Data**
+  - Show every student of the school and their data
+  - Show the history of student data changes
+  - Add a new student to the system
+  - Update the data of a selected student
+- **Classes**
+  - View all the students of a selected class
+  - Add a student to a class
+  - Move a student to another class
+- **Gradebook**
+  - Show the grades of a student in a certain class from a certain subject
+  - Add a new regular grade or the term paper's grade 
+  - Modify an existing grade
+  - Delete an existing grade
+  - Export the student's grades to a file
+  - Show the arithmetic mean of the grades obtained by the selected student at a selected subject
+  - Mark the absence of a selected student to the selected subject
+  - Modify a selected absence
+- **Schoolarships**
+  -
 
-## Preview
+## 🔮 Technologies
+- Java for the app logic
+- Java Swing for the UI
+- MySQL database
+- MySQL Connector to connect to the database
+
+## 👀 Preview
 
 | Login | Main interface (teacher) |
 | - | - |
@@ -43,5 +79,5 @@
 | Scholarships (teacher view) | Select scholarship |
 | :-: | :-: |
 | <img src="art/scholarship.png" width="500px"/> | <img src="art/scholarships_select.png" width="500px"/> |
-| Add schoolarship | Update student schoolarship |
+| Add scholarship | Update student scholarship |
 | <img src="art/scholarship_student_add.png" width="500px"/> | <img src="art/scholarship_student_update.png" width="500px"/> |
